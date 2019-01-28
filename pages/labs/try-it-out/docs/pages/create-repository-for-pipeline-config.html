@@ -1,0 +1,356 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create a GitHub Repository for a Pipeline Configuration &mdash; Solutions Delivery Platform  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="How-To’s" href="../../../../how-to/index.html" />
+    <link rel="prev" title="Choose a Jenkins Pipeline Type" href="choose-jenkins-pipeline-type.html" /> 
+
+  
+  <script src="../../../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Solutions Delivery Platform
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../libraries/index.html">Pipeline Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../jte/docs/index.html">Jenkins Templating Engine</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">Learning Labs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Try It Out</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="deploy-devops-tools.html">Deploy The Devops Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose-jenkins-pipeline-type.html">Choose a Jenkins Pipeline Type</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Create a GitHub Repository for a Pipeline Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../how-to/index.html">How-To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contribute-to-docs.html">Contribute to the Docs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Solutions Delivery Platform</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Learning Labs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Try It Out</a> &raquo;</li>
+        
+      <li>Create a GitHub Repository for a Pipeline Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../_sources/pages/labs/try-it-out/docs/pages/create-repository-for-pipeline-config.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+
+
+
+<div class="section" id="create-a-github-repository-for-a-pipeline-configuration">
+<span id="create-git-repository-for-a-pipeline-configuration"></span><h1>Create a GitHub Repository for a Pipeline Configuration<a class="headerlink" href="#create-a-github-repository-for-a-pipeline-configuration" title="Permalink to this headline">¶</a></h1>
+<p>In this step, you will be creating a GitHub repository that has a pipeline configuration within it.</p>
+<p>The <strong>Pipeline Configuration Repository</strong> is a Git repository where organization-wide settings are configured for your DevSecOps pipelines.
+This repository will contain your business organization or project’s configuration file, which specifies the organization-wide libraries you’d like to utilize within the platform, the application environments, your pipeline templates, and more.</p>
+<p>For this example, you will be configuring a pipeline configuration repository that will be able to perform static quality analysis on a tool called SonarQube and to build a Docker image if the given code reaches a certain code quality based on the analysis.</p>
+<p>While this example of a pipeline configuration only uses two software tools (Docker and SonarQube), there are many other tools that have been already integrated with SDP. For more information about the libraries that have already been integrated with SDP, go here:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/index.html
+</pre></div>
+</div>
+<div class="section" id="create-a-github-repository">
+<h2>Create a GitHub Repository<a class="headerlink" href="#create-a-github-repository" title="Permalink to this headline">¶</a></h2>
+<p>To start, open up a new tab on your browser and then navigate to <a class="reference external" href="https://github.com/">https://github.com/</a>.</p>
+<p>After signing in using your GitHub credentials, you will first create a new repository by going to the upper-hand corner of the screen and clicking the <strong>plus symbol</strong>.
+Click the <strong>New repository</strong> option to start creating a repository.</p>
+<img alt="../../../../../_images/create-github-repo.png" src="../../../../../_images/create-github-repo.png" />
+<p>You should now be taken to a screen to <strong>Create a new repository</strong>.
+For the repository name, let’s just call it <strong>pipeline-configuration</strong>.
+The name of the repository itself is arbitrary, though this name will be referenced in the next section when you specify the settings for your Jenkins pipeline.</p>
+<p>You can make it either public or private depending on if you want this repository to be available to the general public.
+Do not check the checkbox to initialize the GitHub repository with a README, as you be creating a directory with the right files to push to Git in your computer’s terminal.
+You can add a <strong>.gitignore</strong> file if you want and give it the license type you’d like your project to have.</p>
+<p>After doing so, you can now click <strong>Create repository</strong>.</p>
+<p>You should be taken to a screen describing how you can upload files from your local computer to the GitHub repository.
+As you haven’t created any files for the pipeline-configuration repository yet, let’s start there.</p>
+</div>
+<div class="section" id="create-the-pipeline-configuration-file">
+<h2>Create the Pipeline Configuration File<a class="headerlink" href="#create-the-pipeline-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Choose a location for your project files, and create a new directory called <strong>pipeline-configuration</strong>.</p>
+<p>In a text editor, create a file within the pipeline-configuration directory called <strong>pipeline_config.groovy</strong> with the following content:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>libraries<span class="o">{</span>
+  sdp<span class="o">{</span>
+    images<span class="o">{</span>
+      <span class="nv">registry</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:5000&quot;</span> // registry url
+      <span class="nv">cred</span> <span class="o">=</span> <span class="s2">&quot;sdp-docker-registry&quot;</span>// jenkins cred id to authenticate
+      <span class="nv">repo</span> <span class="o">=</span> <span class="s2">&quot;sdp&quot;</span>       // repo to find sdp images -&gt; currently hard coded as <span class="s2">&quot;sdp&quot;</span>
+      <span class="nv">docker_args</span> <span class="o">=</span> <span class="s2">&quot;--network=try-it-out_sdp&quot;</span>  // docker runtime args
+    <span class="o">}</span>
+  <span class="o">}</span>
+  github_enterprise
+  sonarqube<span class="o">{</span>
+    <span class="nv">enforce_quality_gate</span> <span class="o">=</span> <span class="nb">true</span>
+  <span class="o">}</span>
+  docker<span class="o">{</span>
+   <span class="nv">registry</span> <span class="o">=</span> <span class="s2">&quot;localhost:5000&quot;</span>
+   <span class="nv">cred</span> <span class="o">=</span> <span class="s2">&quot;sdp-docker-registry&quot;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may need to change the IP Address of the <code class="docutils literal"><span class="pre">registry</span></code> and <code class="docutils literal"><span class="pre">application_image_repository</span></code> values depending on what it is for your docker registry.</p>
+</div>
+<p>The pipeline_config.groovy file are a big part what allows SDP to do something special:
+it allows for easy pipeline reuse by different application repositories. While it’s not explained in this tutorial,
+you may want to look at defining stage within your pipeline_config.groovy file to group together different library steps
+in a specific order that can easily be called by your applications’ different Jenkinsfiles, as described on this page: <a class="reference external" href="https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/conditional-inheritance.html">https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/conditional-inheritance.html</a></p>
+<p>This file has several parts to it.
+In general, it consists of configuring some parameters for the local Docker registry URLs and their respective credentials that you will be using later in this guide as well as specifying all the libraries that you will be using.</p>
+<p>The <code class="docutils literal"><span class="pre">application_image_repository</span></code> URL defined within the given pipeline_config.groovy file specifies the Docker registry where Docker images will be pushed to while the respective credential key specifies the Jenkins credentials (which we have already automated the creation of within the Jenkins instance) needed for Jenkins to be able to access your given Docker registry.
+In this example, the local Docker registry we setup earlier is where application Docker images will be pushed to.
+For more information about the <strong>application_image_repository</strong> key-value pairs, visit this page: <a class="reference external" href="https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/app-image-repo.html">https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/app-image-repo.html</a></p>
+<p>The values defined within the <code class="docutils literal"><span class="pre">libraries.sdp.images</span></code> block defines some parameters of how SDP-related Docker images will be handled. The registry value specifies the URL for where SDP Docker images will be pulled from using the local Docker registry you already setup while the <code class="docutils literal"><span class="pre">cred</span></code> field specifies the ID of the Jenkins credential used to access it.
+The <code class="docutils literal"><span class="pre">docker_args</span></code> field allows for users to enter any Docker flags they want to use to run SDP-related Docker images, as shown by the <code class="docutils literal"><span class="pre">--network=try-it-out_sdp</span></code> specified, which ensures that a SDP-specific Docker container will be put in a <a class="reference external" href="https://docs.docker.com/v17.09/engine/userguide/networking/#user-defined-networks">Docker network</a> labeled “try-it-out_sdp.”</p>
+<p>In the section enclosed by <strong>libraries</strong>, we declare each of the libraries that we’d like to use within our pipeline and set any parameters that we need to set for the respective library.
+As there are no mandatory library configuration options you need to set for the Docker library, you can leave it blank.
+However, in the sonarqube stage, we set the <strong>enforce_quality_gate</strong> boolean variable to be true so that the Jenkins build will fail if the code does not pass the quality gate, or some general code quality percentage, which is configurable in SonarQube itself.</p>
+<dl class="docutils">
+<dt>For more information about the Docker and Sonarqube libraries, you can go here:</dt>
+<dd><ul class="first last simple">
+<li>Docker: <a class="reference external" href="https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/docker.html">https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/docker.html</a></li>
+<li>SonarQube: <a class="reference external" href="https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/sonarqube.html">https://boozallen.github.io/sdp-pipeline-framework/pages/libraries/sonarqube.html</a></li>
+</ul>
+</dd>
+</dl>
+<p>For a list of all the libraries that have already been integrated with SDP in general, you can visit our libraries page <a class="reference external" href="https://pages.github.boozallencsn.com/solutions-delivery-platform/pipeline-framework/pages/libraries/">here</a>.</p>
+<p>When you’re done creating the pipeline_config.groovy file and saving it to the pipeline-configuration directory, you will now push the files to the GitHub repository you made in the previous step.</p>
+<p>For more information about what you can do within pipeline-configuration files, take a look at the different sub-sections under the “For SDP Users” section: <a class="reference external" href="https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/index.html">https://boozallen.github.io/sdp-pipeline-framework/pages/for-sdp-users/index.html</a></p>
+</div>
+<div class="section" id="pushing-code-to-a-github-repository">
+<h2>Pushing Code to a GitHub Repository<a class="headerlink" href="#pushing-code-to-a-github-repository" title="Permalink to this headline">¶</a></h2>
+<p>In your terminal, navigate to the inside of your pipeline-configuration directory, which should now only contain a <strong>pipeine_config.groovy</strong> file.
+Afterwards, enter the following commands into your terminal to push the contents of that directory (which should only consist of the pipeline_config.groovy file) to the GitHub repository.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;# pipeline-configuration&quot;</span> &gt;&gt; README.md
+git init
+git add .
+git commit -m <span class="s2">&quot;first commit&quot;</span>
+git remote add origin https://github.com/organization-name/pipeline-configuration.git
+git push -u origin master
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Make sure that you replace <strong>organization-name</strong> within the github URL with the name of your <a class="reference external" href="https://help.github.com/articles/about-organizations/">GitHub organization</a> or, more likely, the username of your GitHub account if that’s where you created the GitHub Organization earlier in this page.</p>
+</div>
+<p>If you refresh your browser with the GitHub tab still open, you should see something similar to the screenshot shown below:</p>
+<img alt="../../../../../_images/view_github.png" src="../../../../../_images/view_github.png" />
+<p>You now have a GitHub repository to configure a pipeline that you can use to build out pipelines for the Spring Boot API!</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../../../how-to/index.html" class="btn btn-neutral float-right" title="How-To’s" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="choose-jenkins-pipeline-type.html" class="btn btn-neutral" title="Choose a Jenkins Pipeline Type" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Booz Allen Hamilton
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../../../master/pages/labs/try-it-out/docs/pages/create-repository-for-pipeline-config.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../../../../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

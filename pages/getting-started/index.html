@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started &mdash; Solutions Delivery Platform  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Create a GitHub Organization" href="create_github_organization.html" />
+    <link rel="prev" title="Solutions Delivery Platform" href="../../index.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Solutions Delivery Platform
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="create_github_organization.html">Create a GitHub Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_pipeline_config_repo.html">Create a Pipeline Configuration Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clone_sdp_repo.html">Clone The SDP Deployment Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_jenkins_in_chart.html">Configure Jenkins Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_sdp.html">Deploy SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_sdp.html">Configure SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_openshift_library.html">Configuring the OpenShift Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_org_pipeline.html">Create Organizational Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_tenant_repo.html">Configure a Tenant Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verify.html">Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Pipeline Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jte/docs/index.html">Jenkins Templating Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/index.html">Learning Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/index.html">How-To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute-to-docs.html">Contribute to the Docs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Solutions Delivery Platform</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/getting-started/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+
+
+
+<div class="section" id="getting-started">
+<span id="id1"></span><h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to the Getting Started page for the Solutions Delivery Platform!</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The Solutions Delivery Platform (SDP) is, first and foremost, a pipeline <em>framework</em>.  There are <strong>no</strong> requirements around what type of artifact, if any,
+is built and there are <strong>no</strong> requirements around where those artifacts are deployed.</p>
+<p>The SDP can be used for any workflow that requires organizational governance,
+the ability to leverage plug and play functionality, and maximum reusability.</p>
+<p>Examples of workflows that SDP could support</p>
+<ul class="simple">
+<li>Data Ingest Pipelines</li>
+<li>Infrastructure as Code Pipelines</li>
+<li>DevSecOps Pipelines</li>
+</ul>
+</div>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p><em>That being said</em>, we have focused primarily on creating libraries for building an end-to-end DevSecOps pipeline to deploy containerized applications to kubernetes, specifically OpenShift.</p>
+<p>Assuming this is your use case, there are a few prerequisites:</p>
+<ul class="simple">
+<li>An OpenShift cluster has been deployed. If you would like some tips for deploying OpenShift in Booz Allen’s AWS CSN environment, refer to our <a class="reference internal" href="../how-to/deploy-openshift-on-aws-csn.html#deploy-openshift-on-aws-csn"><span class="std std-ref">walkthrough</span></a>.</li>
+<li>You’re using GitHub (public or enterprise) to host source code<ul>
+<li>If you do not already have source code feel free to fork the <a class="reference external" href="https://github.boozallencsn.com/Red-Hat-Summit/sdp-website">sdp-website repo</a> from Red Hat Summit</li>
+</ul>
+</li>
+<li>Your workstation is running OSX or Linux, either natively, in a VM, or in a container</li>
+<li>You (and your cluster) can access the <a class="reference external" href="https://github.boozallencsn.com/solutions-delivery-platform/sdp">sdp</a> and <a class="reference external" href="https://github.boozallencsn.com/solutions-delivery-platform/pipeline-framework">pipeline-framework</a> GitHub repositories</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Support of other git based scm’s and non-git scm’s are on the roadmap, but have not yet been implemented.</p>
+</div>
+</div>
+<div class="section" id="let-s-get-started">
+<h2>Let’s Get Started<a class="headerlink" href="#let-s-get-started" title="Permalink to this headline">¶</a></h2>
+<p>Use the <code class="docutils literal"><span class="pre">previous</span></code> and <code class="docutils literal"><span class="pre">next</span></code> buttons to navigate through this guide.</p>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="create_github_organization.html" class="btn btn-neutral float-right" title="Create a GitHub Organization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../index.html" class="btn btn-neutral" title="Solutions Delivery Platform" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Booz Allen Hamilton
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../master/pages/getting-started/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

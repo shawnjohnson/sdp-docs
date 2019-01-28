@@ -1,0 +1,297 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Deploy SDP &mdash; Solutions Delivery Platform  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configure SDP" href="configure_sdp.html" />
+    <link rel="prev" title="Configure Jenkins Chart" href="configure_jenkins_in_chart.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Solutions Delivery Platform
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_github_organization.html">Create a GitHub Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_pipeline_config_repo.html">Create a Pipeline Configuration Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clone_sdp_repo.html">Clone The SDP Deployment Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_jenkins_in_chart.html">Configure Jenkins Chart</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Deploy SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_sdp.html">Configure SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_openshift_library.html">Configuring the OpenShift Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_org_pipeline.html">Create Organizational Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_tenant_repo.html">Configure a Tenant Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verify.html">Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Pipeline Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jte/docs/index.html">Jenkins Templating Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/index.html">Learning Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/index.html">How-To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute-to-docs.html">Contribute to the Docs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Solutions Delivery Platform</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Deploy SDP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/getting-started/deploy_sdp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+
+
+
+<div class="section" id="deploy-sdp">
+<span id="id1"></span><h1>Deploy SDP<a class="headerlink" href="#deploy-sdp" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="clone-the-sdp-deployment-repository">
+<h2>Clone The SDP Deployment Repository<a class="headerlink" href="#clone-the-sdp-deployment-repository" title="Permalink to this headline">¶</a></h2>
+<p>Deploying the Solutions Delivery Platform with the default reference architecture is done using a bash script and a series of Helm charts for the different DevSecOps tools. These are all contained in the <a class="reference external" href="https://github.boozallencsn.com/solutions-delivery-platform/sdp">SDP GitHub Repository</a>, which you can clone with either of the commands below.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">## cloning via ssh</span>
+git clone git@github.boozallencsn.com:solutions-delivery-platform/sdp.git
+<span class="c1">## cloning via https</span>
+git clone https://github.boozallencsn.com/solutions-delivery-platform/sdp.git
+</pre></div>
+</div>
+<p><strong>If you haven’t already</strong>, use one of the above commands to clone the sdp repository to your computer. We will be editing the <em>values.yaml</em> file in the root of this repository to configure the SDP for your project.</p>
+<div class="section" id="customize-the-values-yaml-file">
+<h3>Customize the <code class="docutils literal"><span class="pre">values.yaml</span></code> File<a class="headerlink" href="#customize-the-values-yaml-file" title="Permalink to this headline">¶</a></h3>
+<p>If necessary, customize the <em>values.yaml</em> file further.  Please refer to the README <a class="reference external" href="https://github.boozallencsn.com/solutions-delivery-platform/sdp/blob/master/README.rst">here</a> information on what each line of the <em>values.yaml</em> file does. If following the <a class="reference internal" href="index.html#getting-started"><span class="std std-ref">Getting Started</span></a>
+guide, you should have already customized the <a class="reference internal" href="configure_jenkins_in_chart.html#jenkins-chart-configuration"><span class="std std-ref">jenkins chart configuration</span></a> with
+a reference to the GitHub organizations you intend for SDP to watch and added your pipeline configuration repository as a library.</p>
+<p>The only other field you should update is <code class="docutils literal"><span class="pre">domain</span></code>, under <code class="docutils literal"><span class="pre">global</span></code>. Set this to whatever domain is being used for the routes on your Openshift cluster.</p>
+</div>
+<div class="section" id="additional-tools">
+<h3>Additional Tools<a class="headerlink" href="#additional-tools" title="Permalink to this headline">¶</a></h3>
+<p>We have created several helm charts to deploy additional DevSecOps tooling.  The full list of tools and customizations
+for the SDP helm chart can be seen in the <code class="docutils literal"><span class="pre">README.rst</span></code> of the deployment repository.  It renders best in the browser
+and can be seen <a class="reference external" href="https://github.boozallencsn.com/solutions-delivery-platform/sdp/blob/master/README.rst">here</a>.</p>
+</div>
+<div class="section" id="run-the-installer-script">
+<h3>Run the Installer Script<a class="headerlink" href="#run-the-installer-script" title="Permalink to this headline">¶</a></h3>
+<p>The installer script to deploy SDP has a few prerequisites:</p>
+<ul class="simple">
+<li>You have installed the <a class="reference external" href="https://docs.openshift.com/container-platform/3.9/cli_reference/get_started_cli.html">OpenShift CLI</a></li>
+<li>You are logged into the target deployment cluster and have appropriate admin permissions.</li>
+<li>You have installed the <a class="reference external" href="https://docs.helm.sh/using_helm/#installing-the-helm-client">Helm CLI</a></li>
+</ul>
+<p>With the helm chart appropriately configured, you can run the installer script via</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">installer</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configure_sdp.html" class="btn btn-neutral float-right" title="Configure SDP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configure_jenkins_in_chart.html" class="btn btn-neutral" title="Configure Jenkins Chart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Booz Allen Hamilton
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../master/pages/getting-started/deploy_sdp.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

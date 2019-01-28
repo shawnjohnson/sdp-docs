@@ -1,0 +1,340 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configure SDP &mdash; Solutions Delivery Platform  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configuring the OpenShift Library" href="configure_openshift_library.html" />
+    <link rel="prev" title="Deploy SDP" href="deploy_sdp.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Solutions Delivery Platform
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_github_organization.html">Create a GitHub Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_pipeline_config_repo.html">Create a Pipeline Configuration Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clone_sdp_repo.html">Clone The SDP Deployment Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_jenkins_in_chart.html">Configure Jenkins Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_sdp.html">Deploy SDP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configure SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_openshift_library.html">Configuring the OpenShift Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_org_pipeline.html">Create Organizational Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_tenant_repo.html">Configure a Tenant Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verify.html">Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Pipeline Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jte/docs/index.html">Jenkins Templating Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/index.html">Learning Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/index.html">How-To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute-to-docs.html">Contribute to the Docs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Solutions Delivery Platform</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Configure SDP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/getting-started/configure_sdp.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+
+
+
+<div class="section" id="configure-sdp">
+<h1>Configure SDP<a class="headerlink" href="#configure-sdp" title="Permalink to this headline">¶</a></h1>
+<p>With your GitHub organization created and the SDP deployed, let’s configure it for your organization.</p>
+<p>This example DevSecOps pipeline will:</p>
+<ul class="simple">
+<li>build a container image with <a class="reference internal" href="../libraries/docker/README.html#docker-library"><span class="std std-ref">Docker</span></a></li>
+<li>perform static code quality analysis with <a class="reference internal" href="../libraries/sonarqube/README.html#sonarqube-library"><span class="std std-ref">SonarQube</span></a></li>
+<li>perform penetration testing with <a class="reference internal" href="../libraries/owasp_zap/README.html#owasp-zap-library"><span class="std std-ref">Owasp Zap</span></a></li>
+<li>perform an accessibility compliance scan with <a class="reference internal" href="../libraries/a11y/README.html#a11y-library"><span class="std std-ref">The A11y Machine</span></a></li>
+<li>deploy to application environments with <a class="reference internal" href="../libraries/openshift/README.html#openshift-library"><span class="std std-ref">OpenShift</span></a> using Helm</li>
+</ul>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">The example pipeline outlined here is <strong>not</strong> all that SDP can do. Rather, it’s what we are choosing to showcase as a sample SDP DevSecOps pipeline using a common configuration and only tools deployed via Helm.</p>
+</div>
+<div class="section" id="specify-your-pipeline-libraries">
+<h2>Specify Your Pipeline Libraries<a class="headerlink" href="#specify-your-pipeline-libraries" title="Permalink to this headline">¶</a></h2>
+<p>The SDP pipeline framework works by implementing functionality at runtime. A pipeline template calls generic methods that perform the actions of the <a class="reference internal" href="../jte/docs/pages/Templating/configuration_files/default_step_implementation.html#default-step-implementation"><span class="std std-ref">default step implementation</span></a> unless a library is loaded implementing the method.  For the nerds out there who like academic names for things, this is an implementation of the <a class="reference external" href="https://dzone.com/articles/design-patterns-template-method">Template Method Design Pattern</a>.</p>
+<p>For example, you may have a <code class="docutils literal"><span class="pre">build</span></code> step in your pipeline, in which you want the pipeline to build container images from your source code. You might select the “Docker” library to include in your pipeline, which contains a definition for that pipeline step. That way, whenever your pipeline executes that Build step, it looks to the Docker library for its implementation.</p>
+<p>Start by opening your organization’s configuration file in the pipeline configuration repository (<code class="docutils literal"><span class="pre">/resources/sdp-org/pipeline_config.groovy</span></code>) in your favorite text editor. SDP pipeline libraries are configured in a <code class="docutils literal"><span class="pre">libraries</span></code> block. For our example, that looks like:</p>
+<div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">libraries</span><span class="o">{</span>
+  <span class="n">github_enterprise</span>
+  <span class="n">sonarqube</span>
+  <span class="n">docker</span>
+  <span class="n">openshift</span>
+  <span class="n">owasp_zap</span><span class="o">{</span>
+    <span class="n">merge</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="o">}</span>
+  <span class="n">a11y</span><span class="o">{</span>
+    <span class="n">merge</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal"><span class="pre">merge</span></code> fields below <code class="docutils literal"><span class="pre">owasp_zap</span></code> and <code class="docutils literal"><span class="pre">a11y</span></code> indicate that we want to allow tenants to provide their own settings for these libraries. We want to allow this because these libraries require a URL to run tests against, and each tenants’ will be different.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For a minimal configuration only the github_enterprise, docker, and openshift libraries are needed.</p>
+</div>
+</div>
+<div class="section" id="add-your-image-repository-information">
+<h2>Add Your Image Repository Information<a class="headerlink" href="#add-your-image-repository-information" title="Permalink to this headline">¶</a></h2>
+<p>To simplify tool management, all of the tools used by SDP are built into container images and leveraged by the pipeline. In this example pipeline, we’ll also be building container images for our application.  We’ll need to configure where the <span class="xref std std-ref">SDP pipeline images</span> are stored and where the <span class="xref std std-ref">application container images</span> will be archived.  Please refer to the linked documentation pages to read about those configuration options.  If you’re using the integrated OpenShift Registry and you deployed SDP to a project called <code class="docutils literal"><span class="pre">sdp</span></code>, then it’s likely your configuration file should now look like:</p>
+<div class="highlight-groovy"><div class="highlight"><pre><span></span><span class="n">sdp_image_repository</span> <span class="o">=</span> <span class="s2">&quot;https://docker-registry.default.svc:5000&quot;</span>
+<span class="n">sdp_image_repository_credential</span> <span class="o">=</span> <span class="s2">&quot;sdp-jenkins-docker-registry&quot;</span>
+
+<span class="n">application_image_repository</span> <span class="o">=</span> <span class="s2">&quot;docker-registry.default.svc:5000/demo&quot;</span>
+<span class="n">application_image_repository_credential</span> <span class="o">=</span> <span class="s2">&quot;sdp-jenkins-docker-registry&quot;</span>
+
+<span class="n">libraries</span><span class="o">{</span>
+  <span class="n">github_enterprise</span>
+  <span class="n">sonarqube</span>
+  <span class="n">docker</span>
+  <span class="n">openshift</span>
+  <span class="n">owasp_zap</span><span class="o">{</span>
+    <span class="n">merge</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="o">}</span>
+  <span class="n">a11y</span><span class="o">{</span>
+    <span class="n">merge</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-jenkins-credentials-for-the-docker-registry">
+<h2>Add Jenkins Credentials for the Docker Registry<a class="headerlink" href="#add-jenkins-credentials-for-the-docker-registry" title="Permalink to this headline">¶</a></h2>
+<p>Assuming you are using OpenShift’s Docker Registry (i.e. “docker-registry.default.svc:5000”) for your sdp and application image repositories, you will need to add a global Jenkins credential. You can follow the steps described in the <a class="reference internal" href="../how-to/add_jenkins_credentials.html#add-credentials-to-jenkins"><span class="std std-ref">How to Add Credentials to Jenkins Section</span></a> to do this.</p>
+<p>The credentials will have the following values for their respective fields:</p>
+<blockquote>
+<div><p>The <strong>username</strong> will be: <code class="docutils literal"><span class="pre">service</span></code></p>
+<p>To generate the <strong>password</strong>, you will need to run the following command in your terminal and copy/ paste the output into the password field:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>oc sa get-token jenkins
+</pre></div>
+</div>
+<p>The <strong>ID</strong> will be: <code class="docutils literal"><span class="pre">sdp-jenkins-docker-registry</span></code></p>
+<p>The <strong>description</strong> field is optional and can be left blank if desired.</p>
+</div></blockquote>
+<p>Click the <strong>OK</strong> button to create the credential.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configure_openshift_library.html" class="btn btn-neutral float-right" title="Configuring the OpenShift Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="deploy_sdp.html" class="btn btn-neutral" title="Deploy SDP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Booz Allen Hamilton
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="configure_sdp.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

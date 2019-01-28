@@ -1,0 +1,406 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configure Jenkins Chart &mdash; Solutions Delivery Platform  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/style.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Deploy SDP" href="deploy_sdp.html" />
+    <link rel="prev" title="Clone The SDP Deployment Repository" href="clone_sdp_repo.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Solutions Delivery Platform
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_github_organization.html">Create a GitHub Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_pipeline_config_repo.html">Create a Pipeline Configuration Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="clone_sdp_repo.html">Clone The SDP Deployment Repository</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configure Jenkins Chart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy_sdp.html">Deploy SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_sdp.html">Configure SDP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_openshift_library.html">Configuring the OpenShift Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_org_pipeline.html">Create Organizational Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configure_tenant_repo.html">Configure a Tenant Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verify.html">Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Pipeline Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../jte/docs/index.html">Jenkins Templating Engine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../labs/index.html">Learning Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/index.html">How-To’s</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contribute-to-docs.html">Contribute to the Docs</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Solutions Delivery Platform</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Getting Started</a> &raquo;</li>
+        
+      <li>Configure Jenkins Chart</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/pages/getting-started/configure_jenkins_in_chart.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+
+
+
+
+
+<div class="section" id="configure-jenkins-chart">
+<span id="jenkins-chart-configuration"></span><h1>Configure Jenkins Chart<a class="headerlink" href="#configure-jenkins-chart" title="Permalink to this headline">¶</a></h1>
+<p>With your pipeline configuration repository created, you can now deploy the Solutions Delivery Platform by configuring the SDP chart’s <code class="docutils literal"><span class="pre">values.yaml</span></code> file and running the installer script.</p>
+<div class="section" id="make-a-copy-of-the-values-file-template">
+<h2>Make a Copy of the Values File Template<a class="headerlink" href="#make-a-copy-of-the-values-file-template" title="Permalink to this headline">¶</a></h2>
+<p>The file “values.yaml” is how you configure the SDP to use your organization’s
+particular source code repositories, credentials, and various settings. This
+makes values.yaml unique to each deployment of the SDP. In order to prevent your
+particular values.yaml file from being overwritten or from being inadvertently
+uploaded, values.yaml is not only <em>not</em> included in the repository, but is
+actively ignored by Git.</p>
+<p>Instead, a template is provided that you can copy to your own values.yaml file.
+One way to create this copy is opening your terminal to the sdp repository and
+running the command <code class="docutils literal"><span class="pre">cp</span> <span class="pre">values.template.yaml</span> <span class="pre">values.yaml</span></code>. It is highly
+recommended to start from this template and add your additional settings to
+that template copy. Some of the necessary settings you will need to configure
+are described below.</p>
+</div>
+<div class="section" id="configure-github-organization">
+<h2>Configure GitHub Organization<a class="headerlink" href="#configure-github-organization" title="Permalink to this headline">¶</a></h2>
+<p>The first thing to configure in your “values.yaml” file is the GitHub
+organization(s) you would like the SDP to watch. Using your favorite text editor,
+open the values.yaml file in the root of your cloned sdp repository and update
+the following section:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins</span><span class="p">:</span>
+
+    <span class="n">githubOrganizations</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span>         <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">GitHub</span> <span class="n">Organization</span> <span class="n">Name</span> <span class="p">(</span><span class="n">case</span><span class="o">-</span><span class="n">sensitive</span><span class="p">)</span>
+      <span class="n">displayName</span><span class="p">:</span>  <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">Jenkins</span> <span class="n">Job</span> <span class="n">Display</span> <span class="n">Name</span>
+      <span class="n">credentialID</span><span class="p">:</span> <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">Name</span> <span class="n">Of</span> <span class="n">The</span> <span class="n">Jenkins</span> <span class="n">Credential</span> <span class="n">Appropriate</span> <span class="n">For</span> <span class="n">This</span> <span class="n">Organization</span>
+      <span class="n">apiUrl</span><span class="p">:</span>       <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">GitHub</span> <span class="n">API</span> <span class="n">URL</span>
+      <span class="n">repoPattern</span><span class="p">:</span>  <span class="n">Optional</span><span class="o">.</span> <span class="n">Regex</span> <span class="n">of</span> <span class="n">Repositories</span> <span class="n">to</span> <span class="n">watch</span><span class="o">.</span> <span class="n">Default</span> <span class="ow">is</span> <span class="s2">&quot;.*&quot;</span>
+    <span class="o">-</span> <span class="o">...</span> <span class="p">(</span><span class="n">multiple</span> <span class="n">can</span> <span class="n">be</span> <span class="n">defined</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will create a <a class="reference external" href="https://go.cloudbees.com/docs/cloudbees-documentation/cje-user-guide/index.html#github-branch-source">Jenkins GitHub Organization Job</a> for each organization you
+configure with our SDP modification. This Jenkins job automatically creates a
+single pipeline for every branch and pull request for every repository in the
+organization. If it’s not clear what to enter, read the explanation on the
+example configuration further down on this page.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The credentialID fields refer to the ID of a credential object stored in Jenkins.
+Assuming you have a single GitHub account you plan to use, put <code class="docutils literal"><span class="pre">github</span></code>
+here. Otherwise provide a unique credentialID for each GitHub account you plan
+to use. We go over storing these credentials in Jenkins further down this page.</p>
+</div>
+</div>
+<div class="section" id="configure-pipeline-configuration-repository">
+<h2>Configure Pipeline Configuration Repository<a class="headerlink" href="#configure-pipeline-configuration-repository" title="Permalink to this headline">¶</a></h2>
+<p>Next, we need to have Jenkins import the organization config repo we created earlier.
+To do this, we add it to the list of external pipeline libraries to import on startup.</p>
+<p>Add the following to the <code class="docutils literal"><span class="pre">values.yaml</span></code> file, creating an entry for your organization config repo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins</span><span class="p">:</span>
+
+    <span class="n">pipelineLibraries</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span>               <span class="n">Required</span><span class="o">.</span> <span class="n">Library</span> <span class="n">ID</span> <span class="n">to</span> <span class="n">reference</span> <span class="n">when</span> <span class="n">loading</span> <span class="p">(</span><span class="n">the</span> <span class="n">Organization</span> <span class="n">name</span><span class="p">)</span>
+      <span class="n">githubApiUrl</span><span class="p">:</span>       <span class="n">Required</span><span class="o">.</span> <span class="n">GitHub</span> <span class="n">API</span> <span class="n">URL</span>
+      <span class="n">githubCredentialID</span><span class="p">:</span> <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">Name</span> <span class="n">Of</span> <span class="n">The</span> <span class="n">Jenkins</span> <span class="n">Credential</span> <span class="n">That</span> <span class="n">Can</span> <span class="n">Access</span> <span class="n">Library</span> <span class="n">Repo</span>
+      <span class="n">org</span><span class="p">:</span>                <span class="n">Required</span><span class="o">.</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">GitHub</span> <span class="n">Organization</span> <span class="n">Containing</span> <span class="n">the</span> <span class="n">Library</span>
+      <span class="n">repo</span><span class="p">:</span>               <span class="n">Required</span><span class="o">.</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">GitHub</span> <span class="n">Repository</span>
+      <span class="n">implicit</span><span class="p">:</span>           <span class="n">Optional</span><span class="o">.</span> <span class="n">Whether</span> <span class="n">to</span> <span class="n">Load</span> <span class="n">Library</span> <span class="n">Implicitly</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">false</span><span class="o">.</span>
+      <span class="n">defaultVersion</span><span class="p">:</span>     <span class="n">Optional</span><span class="o">.</span> <span class="n">Default</span> <span class="n">Branch</span> <span class="n">of</span> <span class="n">Library</span> <span class="n">to</span> <span class="n">Load</span><span class="o">.</span> <span class="n">Default</span><span class="p">:</span> <span class="n">master</span><span class="o">.</span>
+    <span class="o">-</span> <span class="o">...</span> <span class="p">(</span><span class="n">multiple</span> <span class="n">can</span> <span class="n">be</span> <span class="n">defined</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Here is where you would define additional shared libraries you would like to configure in Jenkins.
+Doing so is outside the scope of this quick start guide.</p>
+</div>
+</div>
+<div class="section" id="configure-credentials">
+<h2>Configure Credentials<a class="headerlink" href="#configure-credentials" title="Permalink to this headline">¶</a></h2>
+<p>Now that we’ve chosen our GitHub organizations and pipeline libraries, we need
+to provide Jenkins the GitHub credentials to access these resources. Include a
+<em>credentials</em> block in your values.yaml file and an entry with id <strong>github</strong>
+containing your GitHub credentials. You can also add any additional credentials
+you plan to use.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins</span><span class="p">:</span>
+
+    <span class="n">credentials</span><span class="p">:</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span>        <span class="n">Required</span><span class="o">.</span> <span class="n">Unique</span> <span class="n">name</span> <span class="k">for</span> <span class="n">the</span> <span class="n">credential</span> <span class="n">by</span> <span class="n">which</span> <span class="n">it</span> <span class="n">can</span> <span class="n">be</span> <span class="n">referenced</span>
+      <span class="n">username</span><span class="p">:</span>  <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">username</span> <span class="k">for</span> <span class="n">the</span> <span class="n">credential</span>
+      <span class="n">password</span><span class="p">:</span>  <span class="n">Required</span><span class="o">.</span> <span class="n">The</span> <span class="n">password</span> <span class="k">for</span> <span class="n">the</span> <span class="n">credential</span>
+    <span class="o">-</span> <span class="o">...</span> <span class="p">(</span><span class="n">multiple</span> <span class="n">can</span> <span class="n">be</span> <span class="n">defined</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Don’t worry if you leave out any credentials here. You can always
+<a class="reference external" href="/pages/how-to/add_jenkins_credentials.html">create additional credentials</a> after installing the SDP.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For Booz Allen employees, your GitHub username is lastname-firstname, all lowercase.
+<a class="reference external" href="https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/">You can find instructions for creating a Personal Access Token here</a></p>
+</div>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Have at least one credential called “github” for the SDP to use when accessing its own resources in GitHub, such as the pipeline-framework repository.</p>
+</div>
+</div>
+<div class="section" id="example-configuration">
+<h2>Example Configuration<a class="headerlink" href="#example-configuration" title="Permalink to this headline">¶</a></h2>
+<p>Putting it all together, an example of the jenkins portion for the <em>values.yaml</em> file looks like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">jenkins</span><span class="p">:</span>
+    <span class="n">master_docker_context_dir</span><span class="p">:</span> <span class="n">resources</span><span class="o">/</span><span class="n">jenkins</span><span class="o">-</span><span class="n">master</span>
+    <span class="n">agent_docker_context_dir</span><span class="p">:</span> <span class="n">resources</span><span class="o">/</span><span class="n">jenkins</span><span class="o">-</span><span class="n">agent</span>
+    <span class="n">num_agents</span><span class="p">:</span> <span class="mi">4</span>
+
+    <span class="c1"># GitHub Orgs to watch</span>
+    <span class="n">githubOrganizations</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">terrana</span><span class="o">-</span><span class="n">steven</span>
+      <span class="n">displayName</span><span class="p">:</span> <span class="n">Steven</span> <span class="n">Terrana</span>
+      <span class="n">credentialID</span><span class="p">:</span> <span class="n">github</span>
+      <span class="n">apiUrl</span><span class="p">:</span> <span class="s2">&quot;https://github.boozallencsn.com/api/v3&quot;</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Red</span><span class="o">-</span><span class="n">Hat</span><span class="o">-</span><span class="n">Summit</span>
+      <span class="n">displayName</span><span class="p">:</span> <span class="n">Red</span> <span class="n">Hat</span> <span class="n">Summit</span>
+      <span class="n">credentialID</span><span class="p">:</span> <span class="n">github</span>
+      <span class="n">apiUrl</span><span class="p">:</span> <span class="s2">&quot;https://github.boozallencsn.com/api/v3&quot;</span>
+
+    <span class="c1"># Pipeline Configuration Repository</span>
+    <span class="n">pipelineLibraries</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">red</span><span class="o">-</span><span class="n">hat</span><span class="o">-</span><span class="n">summit</span>
+      <span class="n">githubApiUrl</span><span class="p">:</span> <span class="s2">&quot;https://github.boozallencsn.com/api/v3&quot;</span>
+      <span class="n">githubCredentialID</span><span class="p">:</span> <span class="n">github</span>
+      <span class="n">org</span><span class="p">:</span> <span class="n">Red</span><span class="o">-</span><span class="n">Hat</span><span class="o">-</span><span class="n">Summit</span>
+      <span class="n">repo</span><span class="p">:</span> <span class="n">pipeline</span><span class="o">-</span><span class="n">configuration</span>
+
+    <span class="c1"># Credentials</span>
+    <span class="o">-</span> <span class="nb">id</span><span class="p">:</span> <span class="n">github</span>
+      <span class="n">username</span><span class="p">:</span> <span class="n">terrana</span><span class="o">-</span><span class="n">steven</span>
+      <span class="n">password</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Access</span> <span class="n">Token</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>In this example, we are creating pipelines for the GitHub repositories in Steven
+Terrana’s account, as well as in the “Red-Hat-Summit” organization. Both
+repositories have their credentialID set to <code class="docutils literal"><span class="pre">github</span></code>. We define that credential
+in our values file and store in it the username and password for a Booz Allen
+Enterprise GitHub account. Both libraries also have the Booz Allen enterprise
+GitHub’s API URL, since they’re on that particular GitHub server. If we were using
+the public GitHub site, we would choose <code class="docutils literal"><span class="pre">https://api.github.com</span></code> and provide
+credentials for a public github account.</p>
+<p>We also created an entry for our organization config repo in <code class="docutils literal"><span class="pre">pipelineLibraries</span></code>.
+We gave it the name <code class="docutils literal"><span class="pre">red-hat-summit</span></code>, the same as the GitHub organization it’s
+in, and specified that the <em>pipeline-configuration</em> repository is where we put
+our configuration files. Later on, when we want our tenant application
+repositories to use this organization configuration repo, we would refer to it
+with <code class="docutils literal"><span class="pre">organization</span> <span class="pre">=</span> <span class="pre">&quot;red-hat-summit&quot;</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="deploy_sdp.html" class="btn btn-neutral float-right" title="Deploy SDP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="clone_sdp_repo.html" class="btn btn-neutral" title="Clone The SDP Deployment Repository" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Booz Allen Hamilton
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../master/pages/getting-started/configure_jenkins_in_chart.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
