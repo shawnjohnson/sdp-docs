@@ -222,8 +222,21 @@ being added to the list of insecure registries.</p>
 <p>Make sure to apply the changes and restart your docker daemon in order for these
 changes to take effect.</p>
 </div>
-<div class="section" id="step-2-deploy-the-tools">
-<h2>Step 2: Deploy The Tools<a class="headerlink" href="#step-2-deploy-the-tools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-2-clone-the-learning-labs-repository-application">
+<h2>Step 2: Clone the Learning Labs Repository Application<a class="headerlink" href="#step-2-clone-the-learning-labs-repository-application" title="Permalink to this headline">¶</a></h2>
+<p>To begin, clone our <a class="reference external" href="https://github.com/boozallen/sdp-labs">SDP Learning Labs</a> GitHub repository,
+which includes all of the files you’ll need to use throughout this lab.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">## cloning via ssh</span>
+git clone git@github.com:boozallen/sdp-labs.git
+
+<span class="c1">## cloning via https</span>
+git clone https://github.com/boozallen/sdp-labs.git
+</pre></div>
+</div>
+<p>In your terminal, navigate to the <code class="docutils literal"><span class="pre">sdp-labs</span></code> directory that you just cloned from GitHub.</p>
+</div>
+<div class="section" id="step-3-deploy-the-tools">
+<h2>Step 3: Deploy The Tools<a class="headerlink" href="#step-3-deploy-the-tools" title="Permalink to this headline">¶</a></h2>
 <p>We’ll be using <a class="reference external" href="https://docs.docker.com/compose/">docker compose</a> to deploy these tools locally.</p>
 <p>Run the following command in your terminal from the root directory of the <code class="docutils literal"><span class="pre">sdp-labs</span></code> repository
 to deploy the Docker containers using the provided docker-compose.yaml file within the <code class="docutils literal"><span class="pre">try-it-out</span></code>
@@ -239,8 +252,8 @@ firewall settings, so you may need to run it on a private network or where firew
 <p>The above command will create and run the following Docker containers:
 Jenkins, a Docker registry, and SonarQube.</p>
 </div>
-<div class="section" id="step-3-validate-the-deployment">
-<h2>Step 3: Validate the Deployment<a class="headerlink" href="#step-3-validate-the-deployment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-4-validate-the-deployment">
+<h2>Step 4: Validate the Deployment<a class="headerlink" href="#step-4-validate-the-deployment" title="Permalink to this headline">¶</a></h2>
 <p>Let’s verify that each tool was successfully deployed.</p>
 <p><strong>Docker Registry</strong></p>
 <blockquote>
@@ -272,19 +285,6 @@ Jenkins, a Docker registry, and SonarQube.</p>
 <a class="reference internal" href="troubleshooting.html#try-it-out-troubleshooting"><span class="std std-ref">troubleshooting</span></a> page for common problems
 and their fixes.</p>
 </div>
-</div>
-<div class="section" id="step-4-clone-the-sample-application">
-<h2>Step 4: Clone the Sample Application<a class="headerlink" href="#step-4-clone-the-sample-application" title="Permalink to this headline">¶</a></h2>
-<p>To begin, clone our <a class="reference external" href="https://github.com/boozallen/sdp-labs">SDP Learning Labs</a> GitHub repository,
-which includes all of the files you’ll need to use throughout this lab.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1">## cloning via ssh</span>
-git clone git@github.com:boozallen/sdp-labs.git
-
-<span class="c1">## cloning via https</span>
-git clone https://github.com/boozallen/sdp-labs.git
-</pre></div>
-</div>
-<p>In your terminal, navigate to the <code class="docutils literal"><span class="pre">sdp-labs</span></code> directory that you just cloned from GitHub.</p>
 </div>
 </div>
 
