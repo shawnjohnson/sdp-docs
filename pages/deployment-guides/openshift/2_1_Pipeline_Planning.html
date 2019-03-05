@@ -201,7 +201,7 @@ be deploying on OpenShift we can make some assumptions about your pipeline.</p>
 <h3>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h3>
 <p>Since OpenShift is a container application platform, and it’s assumed that your
 application is being deployed to OpenShift, it can also be assumed that your application
-running as (Docker) containers. The SDP’s <a href="/pages/libraries/docker/README.html" target="_blank">Docker library</a> makes it easy to
+running as (Docker) containers. The SDP’s <a href="sdp-docs/pages/libraries/docker/README.html" target="_blank">Docker library</a> makes it easy to
 build images from your source code repository and store them in OpenShift’s
 built-in container registry.</p>
 <div class="admonition important">
@@ -213,15 +213,15 @@ important.</p>
 </div>
 <div class="section" id="testing">
 <h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
-<p>The SDP currently has libraries for tools that run <a href="/pages/libraries/sonarqube/README.html" target="_blank">code quality tests</a>,
-<a href="/pages/libraries/a11y/README.html" target="_blank">accessibility compliance (508) tests</a>, <a href="/pages/libraries/owasp_zap/README.html" target="_blank">penetration tests</a> and more. Which ones you should
+<p>The SDP currently has libraries for tools that run <a href="sdp-docs/pages/libraries/sonarqube/README.html" target="_blank">code quality tests</a>,
+<a href="sdp-docs/pages/libraries/a11y/README.html" target="_blank">accessibility compliance (508) tests</a>, <a href="sdp-docs/pages/libraries/owasp_zap/README.html" target="_blank">penetration tests</a> and more. Which ones you should
 use depends on the needs of your application. Automated tests like these are useful for
 detecting issues earlier in a feature’s lifecycle, where it’s easier (and
 cheaper) to correct.</p>
 </div>
 <div class="section" id="deploying">
 <h3>Deploying<a class="headerlink" href="#deploying" title="Permalink to this headline">¶</a></h3>
-<p>The <a href="/pages/libraries/openshift/README.html" target="_blank">OpenShift library</a> makes it easy to deploy to different OpenShift projects
+<p>The <a href="sdp-docs/pages/libraries/openshift/README.html" target="_blank">OpenShift library</a> makes it easy to deploy to different OpenShift projects
 using <a href="https://helm.sh/" target="_blank">Helm</a>, a Kubernetes/OpenShift package manager and templating tool. How to
 deploy an application is defined in a Helm chart or charts, which is maintained
 in your SCM alongside your source code and pipeline configuration. This is covered
