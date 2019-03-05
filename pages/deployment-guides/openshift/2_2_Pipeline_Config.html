@@ -182,7 +182,7 @@ as there are ways to create software. This guide should provide a good foundatio
 build off of.</p>
 <p>This page covers the creation of a simple pipeline configuration repository, a
 repository containing files that define one or more pipelines, with a
-single governance tier in the root. <a href="/pages/jte/docs/pages/Governance/index.html" target="_blank">You can learn more about pipeline governance here</a>.</p>
+single governance tier in the root. <a href="/sdp-docs/pages/jte/docs/pages/Governance/index.html" target="_blank">You can learn more about pipeline governance here</a>.</p>
 <div class="section" id="create-a-repository">
 <h2>Create a Repository<a class="headerlink" href="#create-a-repository" title="Permalink to this headline">¶</a></h2>
 <p>Use an SCM like GitHub to <a href="https://help.github.com/articles/create-a-repo/" target="_blank">create a repository</a> to store your pipeline
@@ -207,7 +207,7 @@ the default pipeline template. A simple pipeline template might look like this:<
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a href="/pages/jte/docs/pages/Templating/index.html" target="_blank">You can learn more about writing pipeline templates here</a></p>
+<p class="last"><a href="/sdp-docs/pages/jte/docs/pages/Templating/index.html" target="_blank">You can learn more about writing pipeline templates here</a></p>
 </div>
 </div>
 <div class="section" id="create-pipeline-config-groovy">
@@ -260,7 +260,7 @@ simple pipeline config file might look like this:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a href="/pages/jte/docs/pages/Templating/configuration_files/index.html" target="_blank">You can learn more about writing pipeline config files here</a></p>
+<p class="last"><a href="/sdp-docs/pages/jte/docs/pages/Templating/configuration_files/index.html" target="_blank">You can learn more about writing pipeline config files here</a></p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
@@ -290,9 +290,9 @@ will have these steps:</p>
 </pre></div>
 </div>
 <p>Now that the pipeline template has defined <em>what</em> the pipeline does, there needs
-to be a pipeline config file to define <em>how</em>. It needs <a href="/pages/jte/docs/pages/Governance/index.html#library-selection" target="_blank">libraries</a> to provide the
-implementation for the pipeline steps, <a href="/pages/jte/docs/pages/Templating/primitives/application_environments.html" target="_blank">application environments</a> to define
-the dev and prod environments being deployed to, and <a href="/pages/jte/docs/pages/Templating/primitives/keywords.html" target="_blank">keywords</a> for the
+to be a pipeline config file to define <em>how</em>. It needs <a href="/sdp-docs/pages/jte/docs/pages/Governance/index.html#library-selection" target="_blank">libraries</a> to provide the
+implementation for the pipeline steps, <a href="/sdp-docs/pages/jte/docs/pages/Templating/primitives/application_environments.html" target="_blank">application environments</a> to define
+the dev and prod environments being deployed to, and <a href="/sdp-docs/pages/jte/docs/pages/Templating/primitives/keywords.html" target="_blank">keywords</a> for the
 variables <code class="docutils literal"><span class="pre">develop</span></code> and <code class="docutils literal"><span class="pre">master</span></code> being used.</p>
 </div>
 <div class="section" id="the-libraries">
@@ -348,7 +348,7 @@ here, it’s being imported because both the SonarQube and OpenShift libraries
 depend on a step it defines.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last"><a href="/pages/libraries/index.html" target="_blank">You can learn more about the SDP pipeline libraries here</a></p>
+<p class="last"><a href="/sdp-docs/pages/libraries/index.html" target="_blank">You can learn more about the SDP pipeline libraries here</a></p>
 </div>
 </div>
 <div class="section" id="the-application-environments">
@@ -365,13 +365,13 @@ depend on a step it defines.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The <a href="/pages/libraries/openshift/README.html" target="_blank">OpenShift library</a> uses <a href="/pages/jte/docs/pages/Templating/primitives/application_environments.html" target="_blank">Application Environment primitives</a> to select which
+<p>The <a href="/sdp-docs/pages/libraries/openshift/README.html" target="_blank">OpenShift library</a> uses <a href="/sdp-docs/pages/jte/docs/pages/Templating/primitives/application_environments.html" target="_blank">Application Environment primitives</a> to select which
 project in OpenShift to deploy to. For example, when the pipeline template calls
 <code class="docutils literal"><span class="pre">deploy</span> <span class="pre">to:</span> <span class="pre">dev``(which</span> <span class="pre">can</span> <span class="pre">also</span> <span class="pre">be</span> <span class="pre">read</span> <span class="pre">as</span> <span class="pre">``deploy(to:</span> <span class="pre">dev)</span></code>), it takes the
 <em>dev</em> application environment primitive object that we define here and uses its
 values in <a href="https://github.com/boozallen/sdp-libraries/blob/master/openshift/deploy_to.groovy" target="_blank">the deploy step</a>. The <code class="docutils literal"><span class="pre">short_name</span></code>, in particular, is used to select
 the target OpenShift project and which values.yaml file to use as part of the
-deployment. View the next section or the <a href="/pages/libraries/openshift/README.html" target="_blank">OpenShift library</a> page for more
+deployment. View the next section or the <a href="/sdp-docs/pages/libraries/openshift/README.html" target="_blank">OpenShift library</a> page for more
 details.</p>
 </div>
 <div class="section" id="the-keywords">
@@ -382,7 +382,7 @@ details.</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>The <a href="/pages/libraries/github_enterprise/README.html" target="_blank">github_enterprise library</a> uses <a href="/pages/jte/docs/pages/Templating/primitives/keywords.html" target="_blank">Keyword primitives</a> to determine what kind
+<p>The <a href="/sdp-docs/pages/libraries/github_enterprise/README.html" target="_blank">github_enterprise library</a> uses <a href="/sdp-docs/pages/jte/docs/pages/Templating/primitives/keywords.html" target="_blank">Keyword primitives</a> to determine what kind
 of GitHub branch is being built. The steps <code class="docutils literal"><span class="pre">on_merge()</span></code>, <code class="docutils literal"><span class="pre">on_commit</span></code>, and
 <code class="docutils literal"><span class="pre">on_pull_request</span></code> take a regex expression as a parameter. These regex
 expressions have been stored as keywords to make the pipeline template more
@@ -410,10 +410,10 @@ and any other pipeline primitives being used.</p>
 <p>You should be ready to move onto the next section, which covers creating a Helm
 chart repository. For more on the information covered in this section:</p>
 <ul class="simple">
-<li><a href="/pages/jte/docs/pages/Templating/index.html" target="_blank">You can learn more about writing pipeline templates here</a></li>
-<li><a href="/pages/jte/docs/pages/Templating/configuration_files/index.html" target="_blank">You can learn more about writing pipeline config files here</a></li>
-<li><a href="/pages/libraries/index.html" target="_blank">You can learn more about the SDP pipeline libraries here</a></li>
-<li><a href="/pages/jte/docs/pages/Library_Development/index.html" target="_blank">You can learn more about writing your own pipeline libraries here</a></li>
+<li><a href="/sdp-docs/pages/jte/docs/pages/Templating/index.html" target="_blank">You can learn more about writing pipeline templates here</a></li>
+<li><a href="/sdp-docs/pages/jte/docs/pages/Templating/configuration_files/index.html" target="_blank">You can learn more about writing pipeline config files here</a></li>
+<li><a href="/sdp-docs/pages/libraries/index.html" target="_blank">You can learn more about the SDP pipeline libraries here</a></li>
+<li><a href="/sdp-docs/pages/jte/docs/pages/Library_Development/index.html" target="_blank">You can learn more about writing your own pipeline libraries here</a></li>
 </ul>
 </div>
 </div>
