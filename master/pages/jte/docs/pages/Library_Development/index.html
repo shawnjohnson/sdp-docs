@@ -84,13 +84,13 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../libraries/index.html">Pipeline Libraries</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Jenkins Templating Engine</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../installation.html">Installing the Plugin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Templating/index.html">Pipeline Templating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Governance/index.html">Governance Model</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Library Development</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="externalizing_config.html">Externalizing Library Configuration</a></li>
 <li class="toctree-l3"><a class="reference internal" href="library_sources.html">Library Sources</a></li>
 <li class="toctree-l3"><a class="reference internal" href="lifecycle_hooks.html">Leverage Lifecycle Hooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="noncall_methods.html">Defining Non-Call Methods in Library Steps</a></li>
 <li class="toctree-l3"><a class="reference internal" href="validate_library_parameters.html">Validate Library Parameters</a></li>
 </ul>
 </li>
@@ -200,7 +200,7 @@ will be that of the basename of the file.</p>
     <span class="n">build</span><span class="o">.</span><span class="n">groovy</span>
 </pre></div>
 </div>
-<p>Writing a step is done by defining a <code class="docutils literal"><span class="pre">call</span></code> method within the groovy step file created. This
+<p>In most cases, writing a step is done by defining a <code class="docutils literal"><span class="pre">call</span></code> method within the groovy step file created. This
 <code class="docutils literal"><span class="pre">call</span></code> method can take input arguments and return objects.  Within the step you can execute any
 old regular Jenkins pipeline code, including invoking other steps defined by loaded libraries.</p>
 <p>Let’s say you wanted this build step to run <code class="docutils literal"><span class="pre">mvn</span> <span class="pre">clean</span> <span class="pre">verify</span></code>, your <code class="docutils literal"><span class="pre">build.groovy</span></code> file
@@ -211,6 +211,11 @@ could be:</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Steps, like regular global variables in Jenkins Shared Libraries, can define methods other than call.
+See an example <a class="reference internal" href="noncall_methods.html#noncall-methods"><span class="std std-ref">here</span></a></p>
 </div>
 </div>
 <div class="section" id="load-the-library">
