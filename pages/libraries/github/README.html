@@ -199,8 +199,8 @@ developers to get scm metadata or interact with a remote github repository.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>enterprise</td>
-<td>This boolean defines if github_enterprise is used, <cite>enterprise=true</cite> or regular github, not defined</td>
+<tr class="row-even"><td>source_type</td>
+<td>This String defines the scm source_type: currently <cite>github_enterprise</cite> and <cite>github</cite> are used</td>
 <td>null</td>
 </tr>
 </tbody>
@@ -209,14 +209,16 @@ developers to get scm metadata or interact with a remote github repository.</p>
 <div class="section" id="configuration">
 <h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
 <div class="code groovy highlight-default"><div class="highlight"><pre><span></span><span class="n">libraries</span><span class="p">{</span>
-  <span class="n">github</span>
+  <span class="n">github</span><span class="p">{</span>
+     <span class="n">source_type</span> <span class="o">=</span> <span class="s2">&quot;github&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p><strong>Enterprise</strong></p>
 <div class="code groovy highlight-default"><div class="highlight"><pre><span></span><span class="n">libraries</span><span class="p">{</span>
   <span class="n">github</span><span class="p">{</span>
-    <span class="n">enterprise</span> <span class="o">=</span> <span class="n">true</span>
+    <span class="n">source_type</span> <span class="o">=</span> <span class="s2">&quot;github_enterprise&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

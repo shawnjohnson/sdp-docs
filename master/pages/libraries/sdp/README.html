@@ -202,7 +202,7 @@
 <td>This sets the registry the sdp library expects to find its Docker images</td>
 <td><em>none</em></td>
 </tr>
-<tr class="row-odd"><td>images.repo</td>
+<tr class="row-odd"><td>images.repository</td>
 <td>The first <a class="reference external" href="https://forums.docker.com/t/docker-registry-v2-spec-and-repository-naming-rule/5466">path component</a>. in the repository name, e.g. if your images follow the format my-registry.com/sdp/*, this would be <strong>sdp</strong></td>
 <td>sdp</td>
 </tr>
@@ -228,7 +228,7 @@ protocol (http/https)</p>
   <span class="n">sdp</span><span class="p">{</span>
     <span class="n">images</span><span class="p">{</span>
       <span class="n">registry</span> <span class="o">=</span> <span class="s2">&quot;https://docker-registry.default.svc:5000&quot;</span>
-      <span class="n">repo</span> <span class="o">=</span> <span class="s2">&quot;sdp&quot;</span>
+      <span class="n">repository</span> <span class="o">=</span> <span class="s2">&quot;sdp&quot;</span>
       <span class="n">cred</span> <span class="o">=</span> <span class="s2">&quot;openshift-docker-registry&quot;</span>
       <span class="n">docker_args</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
@@ -242,7 +242,7 @@ protocol (http/https)</p>
 <ul class="simple">
 <li>A Docker registry must be setup and configured. Credentials to the registry are also needed.</li>
 <li>A repository for the image being used by the given library is expected to be in the given registry.</li>
-<li>The repository name for the pipeline tools’ images should be in the format <em>“${images.registry}/${images.repo}/tool-name”</em></li>
+<li>The repository name for the pipeline tools’ images should be in the format <em>“${images.registry}/${images.repository}/tool-name”</em></li>
 </ul>
 </div>
 </div>
