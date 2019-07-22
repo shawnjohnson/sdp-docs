@@ -194,19 +194,22 @@ annotation markers that can be placed on library steps.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;Init</span></code></td>
-<td>Will get executed at the beginning of a pipeline run</td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;Validate</span></code></td>
+<td>Will get executed at the beginning of a pipeline run, should throw exception if this step does not have its prerequesites</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;BeforeStep</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;Init</span></code></td>
+<td>Will get executed at the beginning of a pipeline run, after Validate</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;BeforeStep</span></code></td>
 <td>Will get executed before every pipeline step invocation</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;AfterStep</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;AfterStep</span></code></td>
 <td>Will get executed after every pipeline step invocation</td>
 </tr>
-<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;CleanUp</span></code></td>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;CleanUp</span></code></td>
 <td>Will get executed at the end of a pipeline run</td>
 </tr>
-<tr class="row-even"><td><code class="docutils literal"><span class="pre">&#64;Notify</span></code></td>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">&#64;Notify</span></code></td>
 <td>Will get executed after every pipeline step invocation as well as at the end of the pipeline run</td>
 </tr>
 </tbody>
